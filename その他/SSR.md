@@ -9,3 +9,7 @@
 
 - 初回のレンダリング速度の改善
 - SEO に対応
+
+# 参考サイト
+
+- https://qiita.com/manabito76/items/fe91eefe11a74dcf5126
