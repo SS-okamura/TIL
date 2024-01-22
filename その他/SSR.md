@@ -18,3 +18,4 @@
 # 参考サイト
 
 - https://qiita.com/manabito76/items/fe91eefe11a74dcf5126
+- https://www.publickey1.jp/blog/17/server_side_renderingserver_side_rendering_ng-japan_2017.html
