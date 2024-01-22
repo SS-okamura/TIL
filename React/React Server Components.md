@@ -1,6 +1,7 @@
 # React Server Components とは
 
 - React Server Components は多段階計算
+- useState が使えない
 
 ## 多段階計算とは
 
@@ -11,6 +12,10 @@
 ### RSC での多段階計算
 
 - サーバー側(stage0), クライアント側(stage1)
+
+### RSC での stage 分け方
+
+- テンプレートエンジンとして使われている React コンポーネント = stage0 = state がないコンポーネント
 
 # RSC による多段階計算の例
 
