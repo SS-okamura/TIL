@@ -28,9 +28,24 @@
   - 同じ階層に layout.tsx と template.tsx が存在する場合、Template は Layout の子要素として適用
 
 - Layout と Template の使い分け方
+
   - ページの再レンダリングが不要な場合は Layout
   - ページの再レンダリングが必要な場合は Template
   - Template を使用する例
     - 各ページで独立したロギングを行う
     - ページ遷移時にアニメーションを行う
     - ページごとにフィードバックフォームを表示する
+
+  ### ルーティング
+
+  - 下記の３つの手段
+    - <Link> コンポーネント
+    - useRouter
+    - History API
+
+  ### URL の情報を取得
+
+  - useSearchParams
+  - usePathname
+    - アクセスしたときのパスが取得
+  - useParams
