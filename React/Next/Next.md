@@ -46,3 +46,5 @@ export const pageRedirectProps = (path: string): TNextRedirectProps => {
 
 - Next 入門
   - https://mukku.life/next-js-tutorial-4934.html
+- use client use server
+  - https://aichi.blog/?p=3281
