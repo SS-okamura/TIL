@@ -8,7 +8,7 @@
   - ディレクトリ名を()で囲うと、ルーティングパスに影響されなくなる機能
     ![](画像/20240122172655.png)
 
-### layout と template
+### 特殊なページ
 
 - layout
 
@@ -21,6 +21,17 @@
   - 子レイアウトやページをラップ
   - Template は各ページ遷移ごとに新しいステートを生成
   - Template を適用した複数のページ間を移動する際に、新しい DOM 要素が生成され、ステートやエフェクトは再同期
+
+- loading
+
+  - 読み込み中の UI を作成
+  - 作成したセグメントの中のコンポーネントを Suspence で囲う
+
+- error
+  - エラーが発生した際の UI
+  - セグメントを Error Boundary で囲う
+
+### layout と template
 
 - Layout と Template の共存
 
@@ -43,9 +54,16 @@
     - useRouter
     - History API
 
+  ### 知らないこと
+
+  - セグメント
+  - スロット
+
   ### URL の情報を取得
 
   - useSearchParams
+    - ページにアクセスするときに付与したクエリパラメータが取得
   - usePathname
     - アクセスしたときのパスが取得
   - useParams
+    - dynamic params を取得
