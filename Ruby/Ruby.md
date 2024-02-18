@@ -63,3 +63,5 @@ rbenv install -l
 
 - bundler とは gem を管理するためのツール
 - bundler 自体も gem の一種
+- 複数の gem の依存関係を保ちながら gem の管理
+- 依存関係にある gem を一括インストール
