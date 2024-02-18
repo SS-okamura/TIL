@@ -34,3 +34,8 @@
 ## フォルダ構成
 
 https://qiita.com/Yaruki00/items/03eb2b6dd96dc44f18b6
+
+## メリット
+
+- or マッパーの Active Recode が最強
+  - 基本的に SQL に近い形で記述ができほとんど生の SQL を使用する機会がない
