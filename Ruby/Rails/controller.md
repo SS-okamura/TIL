@@ -127,3 +127,86 @@ cookies.delete(name)
 - opts: 情報
   - :value: 値
   - :expires: 有効期限
+
+### セッション
+
+```
+# セッション設定
+session[name] = value
+
+# セッション取得
+session[name]
+
+# セッションの破棄
+session[name] = nil
+
+# 全て破棄
+reset_session
+```
+
+### flash
+
+```
+flash[key] = value
+
+# 現在のアクションでのみ有効
+flash.now[name] = value
+
+# フラッシュを次のリクエストに持ち越し
+flash.keep(key)
+
+# フラッシュ破棄
+flash.discard(key)
+```
+
+### フィルタ
+
+- アクションの前後で付随的な処理を実行する仕組み
+- 共通処理(アクセス制限等)を一元管理
+
+```
+# beforeフィルタ
+before_action method, opts
+
+# after_actionフィルタ
+after_action method, opts
+```
+
+- method: フィルタで実行する関数
+- opts
+
+  - only: 指定されたアクションのみ
+  - except: 指定されたアクションを除いて
+
+- around_action フィルタ
+
+```
+around_action method, opts
+```
+
+- アクションの前後で実行
+
+```
+around_action :log_test, only: :test
+
+def test
+
+end
+
+private
+
+def log_test
+  logger.debug
+  # 本来のアクションを呼び出すタイミングでyieldを記述
+  yield
+  logger.debug
+end
+```
+
+- フィルタ function
+  - フィルタを下記のように簡易実装できます
+  ```
+  before_action only: :test do |c|
+    logger.debug
+  end
+  ```
