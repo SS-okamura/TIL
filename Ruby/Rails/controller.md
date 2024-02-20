@@ -1,7 +1,7 @@
 ### controller の作成
 
 ```
-rails g controller name aname opts
+> rails g controller name aname opts
 ```
 
 - name : コントローラー名
@@ -12,7 +12,7 @@ rails g controller name aname opts
 
 ### アクションメソッドの記述
 
-```
+```ruby
 def action
 ...
 end
@@ -24,7 +24,7 @@ end
 
 ### コントローラ/アクション名を取得
 
-```
+```ruby
 # コントローラー名
 controller_name
 # コントローラーのパス
@@ -35,7 +35,7 @@ action_name
 
 ### ポストデータ/クエリ情報/ルートパラメータの取得
 
-```
+```ruby
 params[key]
 ```
 
@@ -46,7 +46,7 @@ params[key]
 - デフォルトでコントローラー名/アクション名を元に対象のテンプレートを決める
 - 上記以外のテンプレートを使用したい場合
 
-```
+```ruby
 render path
 ```
 
@@ -57,7 +57,7 @@ render path
 
 ### 文字を出力
 
-```
+```ruby
 render plain: str
 ```
 
@@ -65,7 +65,7 @@ render plain: str
 
 ### インラインテンプレート
 
-```
+```ruby
 render inline: template
 ```
 
@@ -74,7 +74,7 @@ render inline: template
 
 ### JSON 形式のレスポンスの作成
 
-```
+```ruby
 render json:jsonvar
 ```
 
@@ -82,11 +82,11 @@ render json:jsonvar
 
 ### リダイレクト
 
-```
+```ruby
 redirect_to url
 ```
 
-```
+```ruby
 # 同じコントローラのアクション
 redirect_to action: アクション名
 
@@ -99,20 +99,20 @@ redirect_back
 
 ### 指定されたファイル指定されたファイル
 
-```
+```ruby
 send_file path
 ```
 
 ### キャッシュの設定
 
-```
+```ruby
 expires sec(キャッシュの有効期限秒数)
 expires now(キャッシュクリア)
 ```
 
 ### クッキーを取得/設定
 
-```
+```ruby
 # 設定
 cookies[name] = opts
 
@@ -130,7 +130,7 @@ cookies.delete(name)
 
 ### セッション
 
-```
+```ruby
 # セッション設定
 session[name] = value
 
@@ -146,7 +146,7 @@ reset_session
 
 ### flash
 
-```
+```ruby
 flash[key] = value
 
 # 現在のアクションでのみ有効
@@ -164,7 +164,7 @@ flash.discard(key)
 - アクションの前後で付随的な処理を実行する仕組み
 - 共通処理(アクセス制限等)を一元管理
 
-```
+```ruby
 # beforeフィルタ
 before_action method, opts
 
@@ -180,13 +180,13 @@ after_action method, opts
 
 - around_action フィルタ
 
-```
+```ruby
 around_action method, opts
 ```
 
 - アクションの前後で実行
 
-```
+```ruby
 around_action :log_test, only: :test
 
 def test
@@ -205,7 +205,7 @@ end
 
 - フィルタ function
   - フィルタを下記のように簡易実装できます
-  ```
+  ```ruby
   xxxx_action only: :test do |c|
     statements
   end
@@ -216,7 +216,7 @@ end
 
 ### フィルタオブジェクト(複数のコントローラーでフイルタを共通化)
 
-```
+```ruby
 before(controller)
 after(controller)
 around(controller)
@@ -227,7 +227,7 @@ around(controller)
 - 親コントローラーで定義したフィルタはデフォルトでそのまま子コントローラに適用される
 - 親のフィルタを使わない場合は下記の実装
 
-```
+```ruby
 # 特定のアクションのみで or 特定のアクション以外での場合に:only/:exceptをつける
 skip_before_action method :only/:except
 skip_after_action method :only/:except
@@ -238,7 +238,7 @@ skip_around_action method :only/:except
 
 ### 基本認証(authenticate_or_request_with_http_basic)
 
-```
+```ruby
 authenticate_or_request_with_http_basic(realm) do |name, password|
   login_procedure
 end
@@ -253,7 +253,7 @@ end
 
 ### ダイジェスト認証(authenticate_or_request_with_http_digest)
 
-```
+```ruby
 authenticate_or_request_with_http_digest(realm) do |name|
   login_procedure
 end
@@ -269,7 +269,7 @@ end
 
 ### CSRF 対策
 
-```
+```ruby
 # コントローラー
 protect_from_forgery opts
 # テンプレート
@@ -285,6 +285,6 @@ csrf_meta_tags
 
 ### ビューエルパーの作成
 
-```
+```ruby
 helper_method method
 ```
