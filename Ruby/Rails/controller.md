@@ -206,7 +206,44 @@ end
 - フィルタ function
   - フィルタを下記のように簡易実装できます
   ```
-  before_action only: :test do |c|
-    logger.debug
+  xxxx_action only: :test do |c|
+    statements
   end
   ```
+  - c: コントローラークラス
+  - xxxx: (before, after, around)
+  - statements: フィルタ本体
+
+### フィルタオブジェクト(複数のコントローラーでフイルタを共通化)
+
+```
+before(controller)
+after(controller)
+around(controller)
+```
+
+### 親コントローラーから継承したフィルタの除外
+
+- 親コントローラーで定義したフィルタはデフォルトでそのまま子コントローラに適用される
+- 親のフィルタを使わない場合は下記の実装
+
+```
+# 特定のアクションのみで or 特定のアクション以外での場合に:only/:exceptをつける
+skip_before_action method :only/:except
+skip_after_action method :only/:except
+skip_around_action method :only/:except
+```
+
+### 基本認証(authenticate_or_request_with_http_basic)
+
+```
+authenticate_or_request_with_http_basic(realm) do |name, password|
+  login_procedure
+end
+```
+
+- realm: レルム名(レルム: 、同一の認証情報やセキュリティ設定などが適用される範囲)
+- name: ユーザ名
+- password: パスワード
+- ログイン処理
+- 戻り値: boolean
