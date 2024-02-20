@@ -264,3 +264,27 @@ end
 - login_procedure: ログイン処理
 - 戻り値: boolean
 - ユーザー名とパスワードをハッシュ化して扱う
+
+## セキュリティ
+
+### CSRF 対策
+
+```
+# コントローラー
+protect_from_forgery opts
+# テンプレート
+csrf_meta_tags
+```
+
+- 上記でトークンを生成、フォーム自動的に埋め込む
+- protect_from_forgery はデフォルトで有効になっている
+
+## ビューヘルパー
+
+- テンプレートで使用する処理
+
+### ビューエルパーの作成
+
+```
+helper_method method
+```
