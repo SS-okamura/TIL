@@ -159,7 +159,7 @@ flash.keep(key)
 flash.discard(key)
 ```
 
-### フィルタ
+## フィルタ
 
 - アクションの前後で付随的な処理を実行する仕組み
 - 共通処理(アクセス制限等)を一元管理
@@ -234,6 +234,8 @@ skip_after_action method :only/:except
 skip_around_action method :only/:except
 ```
 
+## 認証
+
 ### 基本認証(authenticate_or_request_with_http_basic)
 
 ```
@@ -242,8 +244,23 @@ authenticate_or_request_with_http_basic(realm) do |name, password|
 end
 ```
 
-- realm: レルム名(レルム: 、同一の認証情報やセキュリティ設定などが適用される範囲)
+- realm: レルム名(レルム: 同一の認証情報やセキュリティ設定などが適用される範囲)
 - name: ユーザ名
 - password: パスワード
-- ログイン処理
+- login_procedure: ログイン処理
 - 戻り値: boolean
+- 厳密な認証には向かない(イントラネット環境ではアリかも)
+
+### ダイジェスト認証(authenticate_or_request_with_http_digest)
+
+```
+authenticate_or_request_with_http_digest(realm) do |name|
+  login_procedure
+end
+```
+
+- realm: レルム名(レルム: 同一の認証情報やセキュリティ設定などが適用される範囲)
+- name: ユーザ名
+- login_procedure: ログイン処理
+- 戻り値: boolean
+- ユーザー名とパスワードをハッシュ化して扱う
