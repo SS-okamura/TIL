@@ -20,7 +20,7 @@
 
 ### 追加/削除
 
-```
+```ruby
 > rails db:create RAILS_ENV=環境名
 > rails db:create all
 > rails db:drop RAILS_ENV=環境名
